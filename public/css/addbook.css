@@ -1,0 +1,29 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+/* body{
+    background-color: skyblue;
+} */
+.top{
+    background-color: rgb(116, 120, 180);
+    /* background-color: #111166; */
+}
+.form{
+   padding: 5px 0 0 20px; 
+   margin:0 0 0 80px;
+}
+.form input{
+    padding: 3px;
+    width: 75%;
+    background-color:whitesmoke;
+}
+.form button{
+    width: 75%;
+    background-color: rgb(38, 21, 133);
+    color: white;
+    padding: 7px;
+}
+#image{
+    width: 20%;
+}
