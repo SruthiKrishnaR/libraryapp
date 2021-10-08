@@ -20,7 +20,7 @@ footer {
   margin-top:40px;
   padding-top:40px;
   padding-bottom:40px;
-  background-color:#cecece;
+  background-color:#a9abb9;
  
 }
 
@@ -42,7 +42,7 @@ footer {
   margin-top:31px;
   background-color:#111166;
   border-color:#000022;
-  color:#efefff;
+  color:#a6a6c9;
   min-height:127px;
   padding: 5px;
 }
@@ -133,7 +133,7 @@ a,a:hover {
 }
 
 .navbar-bright a, .navbar-bright .navbar-brand, #masthead h4 {
-  color:#ccccdd;
+  color:#dfdfe9;
   font-size:14px;
   text-transform: uppercase;
   letter-spacing:.08em;
