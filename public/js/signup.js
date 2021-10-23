@@ -18,13 +18,17 @@ function validate(f1,f2,f3,f4){
 
    function valName(){
         log.textContent="";
-        var user = document.getElementById("username").value;
-        if(user == "admin"){
-           return true;
-        }else{
-            log.textContent ="Invalid Username";
+        var user = document.getElementById("username").value; 
+        // if(user == "admin"){
+        //    return true;
+        // }else{
+        //     log.textContent ="Invalid Username";
+        //     return false;
+        // }
+        if(user.length<8){
+            log.textContent = "Username must contain atleast 8 characters";
             return false;
-        }
+        }else return true;
     }
 
     //mail.textContent ="";
@@ -42,14 +46,6 @@ function validate(f1,f2,f3,f4){
         else{
             return true;
         }
-
-        // if(email==reg){
-        //     console.log("sucess");
-        //     return true;
-        // }else{
-        //     mail.textContent="Invalid Email";
-        //     return false;
-        // }
     }
 
     
@@ -59,12 +55,20 @@ function validate(f1,f2,f3,f4){
     function valPwd(){
         log1.textContent="";
         var content1 =  pwd.value;
-        if(content1 == "12345"){
-            return true;
-        }else{
-            log1.textContent ="Invalid Password";
+        let reg = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{8,}$/;
+        if(!reg.test(content1)) {
+            log1.textContent="Invalid password";
             return false;
         }
+        else{
+            return true;
+        }
+        // if(content1 == "12345"){
+        //     return true;
+        // }else{
+        //     log1.textContent ="Invalid Password";
+        //     return false;
+        // }
     }
 
     var mob = document.getElementById("mob");

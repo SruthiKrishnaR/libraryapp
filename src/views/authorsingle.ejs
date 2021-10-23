@@ -6,17 +6,10 @@
 		<title><%=title%></title>
 		<meta name="generator" content="Bootply" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link href="/css/bootstrap.min.css" rel="stylesheet">
 		<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
 		
-		<link href="css/styles.css" rel="stylesheet">
-    <style>
-      .top{
-        background: radial-gradient(circle, rgba(1,0,9,1) 0%, rgba(220,220,235,1) 0%, rgba(129,143,152,1) 30%);
-        padding: 30px;
-        color: black;
-      }
-    </style>
+		<link href="/css/styles.css" rel="stylesheet">
 	</head>
 	<body>
 <header class="navbar navbar-bright navbar-fixed-top" role="banner">
@@ -28,13 +21,13 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a href="/" class="navbar-brand">Home</a>
+      <a href="/indexadmin" class="navbar-brand">Home</a>
     </div>
     <nav class="collapse navbar-collapse" role="navigation">
       <ul class="nav navbar-nav">
-        <%for(i=0;i<nav.length-2;i++){%>
+        <%for(i=0;i<adm.length;i++){%>
         <li>
-          <a href="<%=nav[i].link%>"><%=nav[i].name%></a>
+          <a href="<%=adm[i].link%>"><%=adm[i].name%></a>
         </li>
         <%}%>
       </ul>
@@ -56,18 +49,22 @@
   <div class="container">
     <div class="row">
       <div class="col-md-7">
-        <h1><%=title%>
-          <p class="lead"><%=div.user%></p>
+        <h1>Author
+          <p class="lead"></p>
         </h1>
       </div>
       <div class="col-md-5">
         <div class="well well-lg"> 
           <div class="row">
             <div class="col-sm-12 flex">
-              <%for(i=0;i<div.length-1;i++){%>
-              <button type="button" class=" list-group-item list-group-item-action list">
-                <a href="<%=div[i].link%>"><span style="color: white;"><%=div[i].name%></span> </a></button>
-             <%}%>
+			
+               <form method="POST" action="/authorsadmin/authorsingle/<%=author._id%>/update">
+                <button class=" list-group-item list-group-item-action list" style="width: 150%; background-color: paleturquoise; color:grey;" type="submit">Update</button>
+                </form>
+               <form method="GET" action="/authorsadmin/authorsingle/<%=author._id%>/delete">
+                <button class=" list-group-item list-group-item-action list" style="width: 150%; background-color: paleturquoise; color:grey;" type="submit">Delete</button>
+                </form>
+
             </div>
           </div>
         </div>
@@ -78,8 +75,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-12">
-        <div class="top-spacer top"> 
-        </div>
+        <div class="top-spacer"> </div>
       </div>
     </div> 
   </div><!-- /cont -->
@@ -92,21 +88,36 @@
     
     <div class="col-md-12"> 
       
-      <div class="panel top">
+      <div class="panel">
         <div class="panel-body">
           
-          
-          
           <!--/stories-->
-          <div class="row" id="div">    
-            <div class="container-fluid">
-              <h1 style="text-align: center; font-size:600%; font-weight: 600;">WELCOME</h1><br>
-              <h5 style="text-align: center; font-size:200%; font-family:inherit; padding-bottom: 50px; color: rgb(7, 7, 63);">"When in doubt go to the library" - J. K. Rowling</h5>
+          <div class="row">    
+            <br>
+            <div class="col-md-2 col-sm-3 text-center">
+              <a class="story-title" href="#"><img alt="" src="/images/<%=author.image%>" style="width:100px;height:100px" class="img-circle"></a>
+            </div>
+            <div class="col-md-10 col-sm-9">
+              <h3><%=author.name%></h3>
+              <div class="row">
+                <div class="col-xs-9">
+                  <h4><span class="label label-default">Famous Works : <%=author.works%></span></h4><h4>
+                    <h4><small style="font-family:courier,'new courier';" class="text-muted">Country : <%=author.country%></small></h4>
+                  <small style="font-family:courier,'new courier';" class="text-muted">DOB : <%=author.dob%>  • </small>
+                  </h4></div>
+                <div class="col-xs-3"></div>
+              </div>
+              <br><br>
             </div>
           </div>
           <hr>
+          
+          
           <!--/stories-->
           
+          
+          <a href="/" class="btn btn-primary pull-right btnNext">More <i class="glyphicon glyphicon-chevron-right"></i></a>
+        
           
         </div>
       </div>
@@ -149,6 +160,7 @@
           <li><i class="icon-google-plus icon-2x"></i></li>
           <li><i class="icon-pinterest icon-2x"></i></li>
         </ul>
+        
       </div>
       <div class="col-sm-6">
           <p class="pull-right">Built with <i class="icon-heart-empty"></i> at <a href="http://www.bootply.com">Bootply</a></p>      
@@ -157,7 +169,6 @@
   </div>
 </footer>
 	<!-- script references -->
-    
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
 		<script src="js/bootstrap.min.js"></script>
 	</body>

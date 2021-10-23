@@ -13,16 +13,16 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="myLeftCtn"> 
-                        <form class="myForm text-center" onsubmit="return validate(valName,valPwd)">
+                        <form class="myForm text-center" method="POST" action="/signin/add" onsubmit="return validate(valName,valPwd)">
                             <header>Sign In Form</header><br>
                             <div class="form-group">
                                 <i class="fas fa-user"></i>
-                                <input class="myInput" type="text" placeholder="Username" id="username" required oninput="valName()"> 
+                                <input class="myInput" type="text" placeholder="Username" id="username" name="username" required oninput="valName()"> 
                                 <p id="log"></p>
                             </div>
                             <div class="form-group">
                                 <i class="fas fa-lock"></i>
-                                <input class="myInput" type="password" id="password" placeholder="Password" required oninput="valPwd()"> 
+                                <input class="myInput" type="password" id="password" placeholder="Password" name="pass" required oninput="valPwd()"> 
                                 <p id="log1"></p>
                             </div><br>
                             <input type="submit" class="butt" id="submit" value="SIGN IN">
@@ -40,7 +40,7 @@
         </div>
 </div>
       
-<script src="/js/signin.js"></script>
+<!-- <script src="/js/signin.js"></script> -->
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>

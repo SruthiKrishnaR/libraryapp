@@ -16,6 +16,10 @@
         padding: 30px;
         color: black;
       }
+      .logout:hover{
+        background-color: black;
+
+      }
     </style>
 	</head>
 	<body>
@@ -28,13 +32,13 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a href="/" class="navbar-brand">Home</a>
+      <a href="/indexadmin" class="navbar-brand">Home</a>
     </div>
     <nav class="collapse navbar-collapse" role="navigation">
       <ul class="nav navbar-nav">
-        <%for(i=0;i<nav.length-2;i++){%>
+        <%for(i=0;i<adm.length;i++){%>
         <li>
-          <a href="<%=nav[i].link%>"><%=nav[i].name%></a>
+          <a href="<%=adm[i].link%>"><%=adm[i].name%></a>
         </li>
         <%}%>
       </ul>
@@ -56,18 +60,18 @@
   <div class="container">
     <div class="row">
       <div class="col-md-7">
-        <h1><%=title%>
-          <p class="lead"><%=div.user%></p>
+        <h1 style="padding: 10px;"><%=title%>
+          <p class="lead"></p>
         </h1>
       </div>
       <div class="col-md-5">
         <div class="well well-lg"> 
           <div class="row">
             <div class="col-sm-12 flex">
-              <%for(i=0;i<div.length-1;i++){%>
-              <button type="button" class=" list-group-item list-group-item-action list">
-                <a href="<%=div[i].link%>"><span style="color: white;"><%=div[i].name%></span> </a></button>
-             <%}%>
+              <a href="/" style="color: white; padding: 30px 170px; font-size: 20px; border: 2px solid white;"
+              class="logout">
+                Log Out
+              </a>
             </div>
           </div>
         </div>
@@ -100,8 +104,9 @@
           <!--/stories-->
           <div class="row" id="div">    
             <div class="container-fluid">
-              <h1 style="text-align: center; font-size:600%; font-weight: 600;">WELCOME</h1><br>
-              <h5 style="text-align: center; font-size:200%; font-family:inherit; padding-bottom: 50px; color: rgb(7, 7, 63);">"When in doubt go to the library" - J. K. Rowling</h5>
+              <h1 style="text-align: center; font-size:600%; font-weight: 600;">WELCOME</h1>
+              <h2 style="text-align: center; font-size: 300%; padding-bottom: 50px;">Build Your Bookshelf</h2>
+              <h3 style="text-align: center;">You are an Admin!!!</h3>
             </div>
           </div>
           <hr>
