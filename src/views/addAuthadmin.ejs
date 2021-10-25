@@ -52,7 +52,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-7">
-        <h1>Add Author
+        <h1>Edit Author
           <p class="lead"></p>
         </h1>
       </div>
@@ -93,18 +93,18 @@
           <!--/stories-->
 
           <div class="row form container ">    
-            <form method="POST" action="/adminauth/add" enctype="multipart/form-data">
+            <form method="POST" action="/authorsadmin/<%=author._id%>/edit?_method=PUT" enctype="multipart/form-data">
                 <b><span style="color: black;">Author Name:</span> </b><br>
-                <input type="text" name="name" id="title" placeholder="<%=docs.name%>" required ><br><br>
+                <input type="text" name="name" id="title" value="<%=author.name%>" required ><br><br>
                 <b><span style="color: black;">Country:</span> </b><br>
-                <input type="text" name="country" id="author" placeholder="<%=docs.country%>" required ><br><br>
+                <input type="text" name="country" id="author" value="<%=author.country%>" required ><br><br>
                 <b><span style="color: black;">Popular Works:</span> </b><br>
-                <input type="text" name="works" id="genre" placeholder="<%=docs.works%>" required ><br><br>
+                <input type="text" name="works" id="genre" value="<%=author.works%>" required ><br><br>
                 <b><span style="color: black;">Date of Birth:</span> </b><br>
-                <input type="date" name="dob" id="date" placeholder="<%=docs.dob%>" required ><br><br>
+                <input type="date" name="dob" id="date" value="<%=author.dob%>" required ><br><br>
                 <b><span style="color: black;">Image:</span> </b>
-                <input type="file" name="image" id="image" required><br>
-                <button type="submit"><b>ADD</b> </button><br>
+                <input type="file" name="image" id="image" value="<%=author.image%>" required><br>
+                <button type="submit"><b>UPDATE</b> </button><br>
             </form>
           </div>
           <hr>

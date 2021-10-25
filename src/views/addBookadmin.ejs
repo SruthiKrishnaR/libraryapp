@@ -6,11 +6,11 @@
 		<title><%=title%></title>
 		<meta name="generator" content="Bootply" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link href="/css/bootstrap.min.css" rel="stylesheet">
 		<link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.min.css" rel="stylesheet">
 		
-		<link href="css/styles.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/addbook.css">
+		<link href="/css/styles.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/addbook.css">
 	</head>
 	<body>
 <header class="navbar navbar-bright navbar-fixed-top" role="banner">
@@ -50,7 +50,7 @@
   <div class="container">
     <div class="row">
       <div class="col-md-7">
-        <h1>Add Book
+        <h1>Edit Book
           <p class="lead"></p>
         </h1>
       </div>
@@ -91,16 +91,16 @@
           <!--/stories-->
 
           <div class="row form container ">    
-            <form method="POST" action="/admin/add" enctype="multipart/form-data">
+            <form method="POST" action="/booksadmin/<%=book._id%>/edit?_method=PUT" enctype="multipart/form-data" >
                 <b><span style="color: black;">Title:</span> </b><br>
-                <input type="text" name="title" id="title" placeholder="<%=docs.title%>" required ><br><br>
+                <input type="text" name="title" id="title" value="<%= book.title%>" required ><br><br>
                 <b><span style="color: black;">Author:</span> </b><br>
-                <input type="text" name="author" id="author" placeholder="<%=docs.author%>" required ><br><br>
+                <input type="text" name="author" id="author" value="<%= book.author%>" required ><br><br>
                 <b><span style="color: black;">Genre:</span> </b><br>
-                <input type="text" name="genre" id="genre" placeholder="<%=docs.genre%>" required ><br><br>
+                <input type="text" name="genre" id="genre" value="<%= book.genre%>" required ><br><br>
                 <b><span style="color: black;">Image:</span> </b>
-                <input type="file" id="image" name="image" required><br>
-                <button type="submit"><b>ADD</b> </button><br>
+                <input type="file" id="image" name="image" value="<%= book.image%>" required><br>
+                <button type="submit"><b>UPDATE</b> </button><br>
             </form>
           </div>
           <hr>

@@ -36,6 +36,7 @@ function routerLog(nav,div){
                     if(admin){
                         if(password === '12345'){
                             console.log('Admin Added');
+                            div.user="Admin";
                             res.redirect('/indexadmin');
                         }else{
                             console.log('Wrong pwd');
@@ -46,8 +47,7 @@ function routerLog(nav,div){
                             alert('Not an Admin!!!');
                     }
                 });
-            }
-            else{
+            }else{
                 res.render('signup');
                 alert('User not Found!!! Please Sign-In');
             }

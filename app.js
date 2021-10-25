@@ -1,6 +1,7 @@
 const express = require('express');
 const session = require('express-session');
 const app= new express();
+const methodOverride = require('method-override');
 
 const port = process.env.PORT || 5058;
 
@@ -39,6 +40,7 @@ const authoradminRouter = require('./src/routes/adminroutes/authorsadminRoutes')
 app.use(express.urlencoded({extended:true}));
 app.use(express.static('./public'));
 app.use(session({secret:"key",resave:false,saveUninitialized:true,cookie:{maxAge:1000000}}));
+app.use(methodOverride('_method')); 
 
 app.set('view engine','ejs');
 app.set('views','./src/views');
@@ -65,6 +67,7 @@ app.get('/',function(req,res){
 app.get('/indexadmin',function(req,res){
     res.render("indexadmin",{
         adm,
+        div,
         title:'Library'
     });
 });

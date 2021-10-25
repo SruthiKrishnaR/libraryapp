@@ -43,12 +43,33 @@ function routerAuthor(adm,opt){
                 res.redirect('/authorsadmin');
             });
          });
+
+
+        authoradminRouter.put('/:id/edit', upload , async (req,res)=>{
+            try{ 
+                const author =await Authordata.findById(req.params.id);
+                author.name = req.body.name;
+                author.country = req.body.country;
+                author.works = req.body.works;
+                author.dob = req.body.dob;
+                author.image = req.file.filename;
+                author.save();
+                res.render('authorsingle',{
+                    adm,
+                    opt,
+                    title:'Library',
+                    author :author
+                });
+            }catch{
+                res.redirect('/authorsadmin');
+            }
+        });
          
         authoradminRouter.post('/authorsingle/:id/update', upload,(req,res,next)=>{
             const id = req.params.id;
             
-            Authordata.findByIdAndUpdate(id , req.body , (err,docs)=>{
-                console.log(docs);
+            Authordata.findByIdAndUpdate(id , req.body , (err,author)=>{
+                console.log(author);
                 if(err){
                     console.log('Something went wrong');
                     next(err);
@@ -58,12 +79,11 @@ function routerAuthor(adm,opt){
                         adm,
                         opt,
                         title:'Library',
-                        docs
-                    })
-                    
+                        author
+                    });
                 }
-            })
-        })
+            });
+        });
 
     return authoradminRouter;
 }

@@ -3,7 +3,6 @@ const booksadminRouter = express.Router();
 const Bookdata = require('../../model/Bookdata');
 const upload = require('../multer');
 
-
 function router(adm,opt){   
 
     booksadminRouter.get('/',function(req,res){
@@ -32,7 +31,7 @@ function router(adm,opt){
         });
         
     });
-    
+
     booksadminRouter.get('/booksingle/:id/delete',(req,res,next)=>{
        const id = req.params.id;
        console.log(id);
@@ -41,13 +40,31 @@ function router(adm,opt){
        .then(()=>{
            res.redirect('/booksadmin');
        })
-    })
+    });
 
-    booksadminRouter.post('/booksingle/:id/update', upload,(req,res,next)=>{
+    booksadminRouter.put('/:id/edit', upload , async (req,res)=>{
+        try{ 
+            const book =await Bookdata.findById(req.params.id);
+            book.title = req.body.title;
+            book.author = req.body.author;
+            book.genre = req.body.genre;
+            book.image = req.file.filename;
+            book.save();
+            res.render('booksingle',{
+                adm,
+                opt,
+                title:'Library',
+                book :book
+            });
+        }catch{
+            res.redirect('/booksadmin');
+        }
+    });
+
+    booksadminRouter.post('/booksingle/:id/update', upload ,(req,res,next)=>{
         const id = req.params.id;
-        
-        Bookdata.findByIdAndUpdate(id , req.body , (err,docs)=>{
-            console.log(docs);
+        Bookdata.findByIdAndUpdate(id , req.body , (err,book)=>{
+            console.log(book);
             if(err){
                 console.log('Something went wrong');
                 next(err);
@@ -57,14 +74,11 @@ function router(adm,opt){
                     adm,
                     opt,
                     title:'Library',
-                    docs
-                })
-                
+                    book
+                });
             }
-        })
-    })
-
-
+        });
+    });
     
     return booksadminRouter;
 }

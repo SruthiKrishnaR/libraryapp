@@ -56,13 +56,13 @@
       <div class="col-md-5">
         <div class="well well-lg"> 
           <div class="row">
-            <div class="col-sm-12 flex">
+            <div class="col-sm-12 flex col-md-12">
               
                <form method="POST" action="/booksadmin/booksingle/<%=book._id%>/update">
-                <button style="width: 150%; background-color: paleturquoise; color:grey;" type="submit">Update</button>
+                <button class="list-group-item list-group-item-action list" style="width: 140%;" type="submit">Update</button>
                 </form>
                <form method="GET" action="/booksadmin/booksingle/<%=book._id%>/delete">
-                <button style="width: 150%; background-color: paleturquoise; color:grey;" type="submit">Delete</button>
+                <button class="list-group-item list-group-item-action list" style="width: 150%;" type="submit">Delete</button>
                 </form>
 
             </div>
